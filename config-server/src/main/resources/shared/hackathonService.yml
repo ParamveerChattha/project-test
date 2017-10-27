@@ -1,14 +1,13 @@
 server:
   port: 8081
-    
+
 spring:
-  data:
-    mongodb:
-      authentication-database: admin
-      database: my_db
-      username: pravalli
-      password: Root@123
-      port: 3306
+  datasource:
+    url: jdbc:mysql://localhost:3306/my_db
+spring:
+  datasource:
+    username: pravalli
+    password: Root@123
   application:
     name: hackathonService
 
@@ -17,9 +16,9 @@ spring:
   data:
     testWhileIdle: true
     validationQuery: select 1
- 
+
  #JPA Hibernate
- 
+
 spring:
   jpa:
     show-sql: true
@@ -30,8 +29,36 @@ spring:
     hibernate:
       ddl-auto: create-drop
 #Hibernate properties here  - >
+spring:
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
 
- 
+spring:
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+
+# Allows Hibernate to generate SQL optimized for a particular DBMS
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+spring:
+  kafka:
+    bootstrap-servers: 172.23.238.134:9092
+
+spring:
+  kafka:
+    consumer:
+      group-id:test
+
+topic: test
+
 eureka:
   client:
     serviceUrl:
