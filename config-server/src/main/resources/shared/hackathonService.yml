@@ -1,0 +1,38 @@
+server:
+  port: 8081
+    
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      database: my_db
+      username: pravalli
+      password: Root@123
+      port: 3306
+  application:
+    name: hackathonService
+
+#to keep connection alive:
+spring:
+  data:
+    testWhileIdle: true
+    validationQuery: select 1
+ 
+ #JPA Hibernate
+ 
+spring:
+  jpa:
+    show-sql: true
+ #Hibernate ddl auto (create, create-drop, update): with "create-drop" the database
+ # schema will be automatically created afresh for every start of application
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+#Hibernate properties here  - >
+
+ 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
